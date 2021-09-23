@@ -1,0 +1,18 @@
+{
+  "name": "banker_usertoken_backup",
+  "version": "0.0.1",
+  "description": "Banker user token backup",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "Banker",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "discord.js-selfbot": "^12.0.2",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.20"
+  },
+  "keywords": []
+}

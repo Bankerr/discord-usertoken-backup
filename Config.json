@@ -1,0 +1,12 @@
+{
+    "botOwner":"BOTOWNERID",
+    "Token":"USERTOKEN",
+    "guildID":"GUILDID",
+    "botVoiceChannelID":"VOICECHANNEL",
+    "logChannelID":"LOGCHANNEL",
+    "whitelist":["WHITELIST","WHITELIST"],
+    "MongoUrl":"MONGOURL",
+    "roleGuard":true
+
+}
+
