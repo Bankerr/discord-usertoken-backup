@@ -93,6 +93,8 @@ function setRoleBackup() {
             mentionable: role.mentionable,
             time: Date.now(),
             members: role.members.map(m => m.id),
+            channelOverwrites: roleChannelOverwrites
+
           });
           newRoleSchema.save();
         } else {
@@ -104,6 +106,8 @@ function setRoleBackup() {
           savedRole.mentionable = role.mentionable;
           savedRole.time = Date.now();
           savedRole.members = role.members.map(m => m.id);
+          savedRole.channelOverwrites = roleChannelOverwrites;
+
           savedRole.save();
         };
       });
