@@ -3,7 +3,7 @@
 botun altyapısı Yashinu ya aittir sadece biraz daha hızlı rol dağıtımı ve kanal izin ayarlaması için oynadım
 star at çoklu user token dağıtıcı gelsin
 
-# Botun Özellikleri
+## Botun Özellikleri
 sadece rol silindiğinde rolu açıp belirttiğiniz kullanıcı tokeniyle rol ve kanal izinlerini ayarlaması
 
 
