@@ -1,1 +1,1 @@
-+50 star geldiğinde anında paylaşılacaktır!
++50 star geldiğinde çoklu dağıtma sistemi gelicektir iyi günler dilerim.
