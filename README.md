@@ -1,6 +1,6 @@
 # bot ne zaman paylaşılacak
-15 star olsun anında atılacaktır iyi günler
-
+15 star olsun anında atılacaktır
++50 star da çoklu dağıtma sistemi gelicektir iyi günler
 ## Bu Botu Paylaşmamın Amacı
 çok fazla aynı bot altyapısı olduğu için değişiklik yapmaya karar verdim user token ile rol dağıtımı + kanal izini ayarlıyor 
 botun diğer botlara kıyasla biraz daha hızlı rol dağıtımı ve kanal izin ayarlıyor
