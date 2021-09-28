@@ -1,0 +1,10 @@
+{
+    "botOwner":"BOTOWNERID",
+    "Token":"USERTOKEN",
+    "GuildId":"SERVERID",
+    "LogChannelId":"LOGCHANNELID",
+    "whitelist":["WHITELIST"],
+    "MongoUrl":"MONGOCONTENTURL"
+
+}
+
