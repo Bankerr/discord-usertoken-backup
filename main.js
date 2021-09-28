@@ -13,7 +13,12 @@ function safe(kisiID) {
   if (!Member || Member.id === client.user.id || Member.id === Config.botOwner || Member.id === Member.guild.owner.id || Whitelisted.some(g => Member.id === g.slice(1) || Member.roles.cache.has(g.slice(1)))) return true
   else return false;
 };
-
+client.on("ready", async () => {
+  setRoleBackup();
+  setInterval(() => {
+    setRoleBackup();
+  }, 1000*60*60*1);
+});
 client.on("roleDelete", async role => {
   let entry = await role.guild.fetchAuditLogs({type: 'ROLE_DELETE'}).then(audit => audit.entries.first());
   if (!entry || !entry.executor || Date.now()-entry.createdTimestamp > 5000 || safe(entry.executor.id)) return;
@@ -61,13 +66,7 @@ client.on("roleDelete", async role => {
   let roleGuardLog = client.channels.cache.get(Config.LogChannelId);
   if (roleGuardLog)  roleGuardLog.send(`@everyone ${role.name} \`${role.id}\` Rolü Silindi Silen Kişiyi Banlayıp Üyelere ve Kanal İzinlerine Ekliyorum!`)
 }); 
-client.on("ready", async () => {
-  setRoleBackup();
-  setInterval(() => {
-    setRoleBackup();
-  }, 1000*60*60*1);
-});
-// Backup alma fonksiyonu
+
 function setRoleBackup() {
   let guild = client.guilds.cache.get(Config.GuildId);
   if (guild) {
@@ -78,9 +77,6 @@ function setRoleBackup() {
         let pushlanacak = { id: c.id, allow: channelPerm.allow.toArray(), deny: channelPerm.deny.toArray() };
         roleChannelOverwrites.push(pushlanacak);
       });
-
-    
-    
       Database.findOne({guildID: Config.GuildId, roleID: role.id}, async  savedRole => {
         if (!savedRole) {
           let newRoleSchema = new Database({
@@ -113,7 +109,6 @@ function setRoleBackup() {
         };
       });
     });
-
     Database.find({guildID: Config.GuildId}).sort().exec((err, roles) => {
       roles.filter(r => !guild.roles.cache.has(r.roleID) && Date.now()-r.time > 1000*60*60*24*3).forEach(r => {
         Database.findOneAndDelete({roleID: r.roleID});
