@@ -9,11 +9,9 @@ star at çoklu user token dağıtıcı gelsin
 ## Botun Özellikleri
 sadece rol silindiğinde rolu açıp belirttiğiniz kullanıcı tokeniyle rol ve kanal izinlerini ayarlaması
 
-## Diğer Botlarım
-https://github.com/Bankerr/discord-banker-guardbot
-
 Config.json u doldurup Rahatlıkla Kullanabilirsiniz
 
-
+## Diğer Botlarım
+https://github.com/Bankerr/discord-banker-guardbot bakmaya ne dersin
 
 <img src="https://komarev.com/ghpvc/?username=discord-usertoken-backup-main&label=Ziyaretçi%20Sayısı&color=da004e" alt="Bankerr/discord-usertoken-backup/edit/main/" /> <p>
