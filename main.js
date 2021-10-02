@@ -5,8 +5,6 @@ const Config = require('./Config.json');
 const mongoose = require('mongoose');
 mongoose.connect(Config.MongoUrl, {useNewUrlParser: true, useUnifiedTopology: true});
 const Database = require("./models/role.js");
-// Developed By Banker
-
 function safe(kisiID) {
   let Member = client.guilds.cache.get(Config.GuildId).members.cache.get(kisiID);
   let Whitelisted = Config.whitelist || [];
@@ -24,16 +22,8 @@ client.on("roleDelete", async role => {
   if (!entry || !entry.executor || Date.now()-entry.createdTimestamp > 5000 || safe(entry.executor.id)) return;
   await role.guild.members.ban(entry.executor.id, {reason: "Guard System!"})
    let newRole = await role.guild.roles.create({
-    data: {
-      name: role.name,
-      color: role.hexColor,
-      hoist: role.hoist,
-      position: role.rawPosition,
-      permissions: role.permissions,
-      mentionable: role.mentionable
-    } 
+    data: {name: role.name,color: role.hexColor,hoist: role.hoist,position: role.rawPosition,permissions: role.permissions,mentionable: role.mentionable } 
    });
-
   Database.findOne({guildID: role.guild.id, roleID: role.id}, async  roleData => {
     if (!roleData) return;
     setTimeout(() => {
