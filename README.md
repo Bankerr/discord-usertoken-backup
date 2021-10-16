@@ -14,4 +14,6 @@ Config.json u doldurup Rahatlıkla Kullanabilirsiniz
 ## Diğer Botlarım
 https://github.com/Bankerr/discord-banker-guardbot bakmaya ne dersin
 
+https://github.com/Bankerr/discord-v13-nukebot
+
 <img src="https://komarev.com/ghpvc/?username=discord-usertoken-backup-main&label=Ziyaretçi%20Sayısı&color=da004e" alt="Bankerr/discord-usertoken-backup/edit/main/" /> <p>
