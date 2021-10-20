@@ -1,5 +1,5 @@
 const Discord = require('discord.js-selfbot')
-const Client = require('discord.js')
+const Client = require('discord.js-selfbot')
 const client = new Discord.Client()
 const Config = require('./Config.json');
 const mongoose = require('mongoose');
