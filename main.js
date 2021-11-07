@@ -36,19 +36,19 @@ client.on("roleDelete", async role => {
             perm.allow.forEach(p => {
               yenikanalIzin[p] = true;
             });
-            perm.deny.forEach(p => {
+            perm.deny.forEach(async ()p => {
               yenikanalIzin[p] = false;
             });
-            kanal.createOverwrite(newRole, yenikanalIzin).catch(console.error);
+           await kanal.createOverwrite(newRole, yenikanalIzin).catch(console.error);
           }, index*2000);
         });
       }, 2000)
     let roleMembers = roleData.members;
-    roleMembers.forEach((member, index) => {
+    roleMembers.forEach(async (member, index) => {
       let Member = role.guild.members.cache.get(member);
       if (!Member || Member.roles.cache.has(newRole.id)) return;
-      setTimeout(() => {
-        Member.roles.add(newRole.id).catch();
+      setTimeout(async () => {
+       await Member.roles.add(newRole.id).catch();
       }, index*1000);
     });
   });
@@ -104,8 +104,6 @@ function setRoleBackup() {
         Database.findOneAndDelete({roleID: r.roleID});
       });
     });
- // let LogChannel = client.channels.cache.get(Config.LogChannelId);
-// LogChannel.send(`1 Saatlik Rol Veri Tabanı Düzenlendi!`) eğer consol + kanala mesaj atmasını istiyorsanız // olan yerleri silin artık mesaj atıcaktır!
     console.log(`1 Saatlik Rol Veri Tabanı Düzenlendi!`);
   };
 };
