@@ -20,7 +20,6 @@ client.on("ready", async () => {
 client.on("roleDelete", async role => {
   let entry = await role.guild.fetchAuditLogs({type: 'ROLE_DELETE'}).then(audit => audit.entries.first());
   if (!entry || !entry.executor || Date.now()-entry.createdTimestamp > 5000 || safe(entry.executor.id)) return;
-  await role.guild.members.ban(entry.executor.id, {reason: "Guard System!"})
    let newRole = await role.guild.roles.create({
     data: {name: role.name,color: role.hexColor,hoist: role.hoist,position: role.rawPosition,permissions: role.permissions,mentionable: role.mentionable } 
    });
@@ -54,7 +53,7 @@ client.on("roleDelete", async role => {
   });
 
   let roleGuardLog = client.channels.cache.get(Config.LogChannelId);
-  if (roleGuardLog)  roleGuardLog.send(`@everyone ${role.name} \`${role.id}\` Rolü Silindi Silen Kişiyi Banlayıp Üyelere ve Kanal İzinlerine Ekliyorum!`)
+  if (roleGuardLog)  await roleGuardLog.send(`@everyone ${role.name} \`${role.id}\` Rolü Silindi Üyelere ve Kanal İzinlerine Ekliyorum!`)
 }); 
 
 function setRoleBackup() {
